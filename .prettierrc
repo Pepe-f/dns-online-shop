@@ -1,0 +1,7 @@
+{
+	"phpVersion": "8.1",
+	"useTabs": true,
+	"tabWidth": 2,
+	"trailingCommaPHP": false,
+	"semi": false
+}
