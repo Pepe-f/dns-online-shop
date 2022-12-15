@@ -296,62 +296,24 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 	APP.Components.Header = {
 		init: function init(fromPjax) {
 			var windowWidth = $(window).width()
+
 			$(window).on("resize", function () {
 				windowWidth = $(this).width()
 			})
-			$(".header-bottom__catalog").on("click", function () {
-				$(".catalog-menu").addClass("active")
-				$("body").css("overflow-y", "hidden")
-			})
-			$(".catalog-menu__button").on("click", function () {
-				$(".catalog-menu").removeClass("active")
-				$("body").css("overflow-y", "auto")
-			})
-			$(".catalog-menu__category-item").on("mouseenter", function () {
-				if (windowWidth >= 992) {
-					$(".catalog-menu__category-link")
-						.removeClass("catalog-menu__category-link--enter")
-						.hasClass("catalog-menu__category-link--enter")
-					$(this)
-						.find(".catalog-menu__category-link")
-						.addClass("catalog-menu__category-link--enter")
-					var categoryName = $(this).find(".catalog-menu__category-link").text()
-					var catalogList = $(".catalog-menu__subtitle")
 
-					for (var i = 0; i < catalogList.length; i++) {
-						if ($(catalogList[i]).text() === categoryName) {
-							$(".catalog-menu__container")
-								.removeClass("catalog-menu__container--visible")
-								.hasClass("catalog-menu__container--visible")
-							$(catalogList[i])
-								.parent()
-								.addClass("catalog-menu__container--visible")
-						}
-					}
+			$(".header-bottom__catalog").click(function () {
+				$(this).toggleClass("active")
+				$(".header-bottom__catalog-body").toggleClass("active")
+			})
+
+			$(".header-bottom__catalog-item").hover(
+				function () {
+					$(this).find(".header-bottom__catalog-submenu").show()
+				},
+				function () {
+					$(this).find(".header-bottom__catalog-submenu").hide()
 				}
-			})
-
-			$(".catalog-menu__category-item").on("click", function () {
-				if (windowWidth < 992) {
-					var categoryName = $(this).find(".catalog-menu__category-link").text()
-					var catalogList = $(".catalog-menu__subtitle")
-
-					for (var i = 0; i < catalogList.length; i++) {
-						if ($(catalogList[i]).text() === categoryName) {
-							$(".catalog-menu__left").hide()
-							$(".catalog-menu__container")
-								.removeClass("catalog-menu__container--visible")
-								.hasClass("catalog-menu__container--visible")
-							$(catalogList[i])
-								.parent()
-								.addClass("catalog-menu__container--visible")
-						}
-					}
-				}
-			})
-			$(".catalog-menu__back").on("click", function () {
-				$(".catalog-menu__left").show()
-			})
+			)
 		},
 	}
 })(jQuery, window.APP) //////////

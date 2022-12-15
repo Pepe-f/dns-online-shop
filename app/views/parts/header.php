@@ -120,34 +120,13 @@ use dns\View;
 						<button class="header-bottom__catalog button-fill button-fill--primary" type="button">Каталог товаров<span class="header-bottom__catalog-icon"><i></i><i></i><i></i></span></button>
 					</li>
 				</ul>
+				<div class="header-bottom__catalog-body col-lg-6">
+					<?php new \app\widgets\menu\Menu([
+     	"class" => "header-bottom__catalog-list row",
+     	"cache" => 0
+     ]); ?>
+				</div>
 			</nav>
-		</div>
-	</div>
-	<div class="catalog-menu col-12">
-		<div class="catalog-menu__wrapper">
-			<button class="catalog-menu__button" type="button"><img src="<?= PATH ?>/assets/img/close.svg"></button>
-			<div class="row">
-				<div class="col-lg-3 col-12">
-					<div class="catalog-menu__left">
-						<h2 class="catalog-menu__title">Каталог</h2>
-						<?php new \app\widgets\menu\Menu([
-      	"class" => "catalog-menu__category-list",
-      	"cache" => 0
-      ]); ?>
-					</div>
-				</div>
-				<div class="col-lg-9 col-12">
-					<div class="catalog-menu__right">
-						<button class="catalog-menu__back" type="button">Назад в каталог</button>
-						<?php new \app\widgets\menu\Menu([
-      	"tpl" => "inserted_menu_tpl.php",
-      	"class" => "",
-      	"container" => "div",
-      	"cache" => 0
-      ]); ?>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </header>

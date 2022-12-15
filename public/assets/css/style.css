@@ -246,3 +246,86 @@ body.modal-open {
 	text-decoration: none;
 	padding: 5px;
 }
+
+.header-bottom__catalog-body {
+	display: none;
+	position: absolute;
+	top: 40px;
+	z-index: 30;
+	max-width: 274px;
+	padding: 20px;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 15px rgba(19, 19, 19, 0.1);
+	border-radius: 5px;
+}
+
+.header-bottom__catalog-body.active {
+	display: block;
+}
+
+.header-bottom__catalog-item {
+	position: relative;
+}
+
+.header-bottom__catalog-item:not(:last-child) {
+	margin-bottom: 15px
+}
+
+.header-bottom__catalog-item::after {
+	content: '';
+	width: 6px;
+	height: 12px;
+	position: absolute;
+	top: calc(50% - 7px);
+	right: 0;
+	background: url(../img/arrow-menu.svg) no-repeat 50%;
+	background-size: contain;
+}
+
+.header-bottom__catalog-link {
+	display: block;
+	width: 110%;
+	transition: .3s;
+}
+
+.header-bottom__catalog-link strong {
+	font-weight: 500;
+	line-height: 14px;
+}
+
+.header-bottom__catalog-link:hover {
+	color: #FC8507;
+}
+
+.header-bottom__catalog-submenu {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: calc(100% + 20px);
+	background: #FFFFFF;
+	box-shadow: 0px 5px 15px rgba(19, 19, 19, 0.1);
+	border-radius: 5px;
+	padding: 20px !important;
+	max-width: 262px;
+	width: 100%;
+	z-index: 50;
+}
+
+.header-bottom__catalog-submenu li::after {
+	background: none;
+}
+
+.header-bottom__catalog-submenu li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.header-bottom__catalog-submenu li a {
+	color: #131313;
+	text-decoration: none;
+	line-height: 14px;
+	transition: .3s;
+}
+
+.header-bottom__catalog-submenu li a:hover {
+	color: #FC8507;
+}
