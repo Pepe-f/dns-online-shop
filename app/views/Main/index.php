@@ -50,13 +50,14 @@ use dns\View;
 		</div>
 </section>
 <?php } ?>
+<?php if (!empty($products)) { ?>
 <section class="recomendation col-12">
 	<div class="container">
 		<div class="row">
 			<h1 class="recomendation__title col-12">Рекомендуем вам</h1>
 			<div class="recomendation__wrapper col-12">
 				<div class="row justify-content-between">
-					<p>Карточка товара</p>
+					<?php $this->getPart("parts/products_loop", compact("products")); ?>
 				</div>
 			</div><a class="recomendation__button" href="/catalog-list.php"><span>Смотреть весь каталог</span>
 				<svg class="ico ico-mono-arrow-right">
@@ -65,6 +66,8 @@ use dns\View;
 		</div>
 	</div>
 </section>
+<?php } ?>
+<?php if (!empty($subcategories)) { ?>
 <section class="catalog-list col-12">
 	<div class="container">
 		<div class="row">
@@ -73,15 +76,20 @@ use dns\View;
 			</div>
 			<div class="catalog-list__wrapper col-12">
 				<div class="row justify-content-between">
-						<a class="catalog-list__item col-lg-4 col-sm-6 col-12" href="catalog.php">
+					<?php foreach ($subcategories as $subcategory) { ?>
+						<a class="catalog-list__item col-lg-4 col-sm-6 col-12" href="catalog/<?= $subcategory[
+      	"slug"
+      ] ?>">
 							<div class="catalog-list__body">
-								<h2 class="catalog-list__name">Подкатегория</h2>
+								<h2 class="catalog-list__name"><?= $subcategory["name"] ?></h2>
 							</div>
 						</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 </section>
+<?php } ?>
 <section class="about col-12">
 	<div class="container">
 		<div class="row">

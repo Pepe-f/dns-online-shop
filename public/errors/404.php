@@ -17,12 +17,20 @@
 			top:25%;
 			left:35%;
 		}
+		h1 {
+			text-align: center;
+		}
+		p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 100px;
+		}
 		p a{
 			color:#eee;
 			font-size:13px;
-			margin-left:30px;
-			padding:5px;
-			background:#FF3366;
+			padding:10px;
+			background:#FC8507;
 			text-decoration:none;
 			-webkit-border-radius:.3em;
 			-moz-border-radius:.3em;
@@ -37,8 +45,8 @@
 <body>
 <div class="wrap">
 	<div class="logo">
-		<img src="/errors/images/404.png" alt=""  />
-		<p><a href="<?= PATH ?>">Вернуться на Главную</a></p>
+		<h1>404 - Страница не найдена</h1>
+		<p><a href="<?= PATH ?>">Вернуться на главную</a></p>
 	</div>
 </div>
 

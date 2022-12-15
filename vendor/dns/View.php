@@ -6,12 +6,12 @@ use RedBeanPHP\R;
 
 class View
 {
-	public string $content = '';
+	public string $content = "";
 
 	public function __construct(
 		public $route,
-		public $layout = '',
-		public $view = '',
+		public $layout = "",
+		public $view = "",
 		public $meta = []
 	) {
 		if (false !== $this->layout) {
@@ -24,9 +24,9 @@ class View
 		if (is_array($data)) {
 			extract($data);
 		}
-		$prefix = str_replace('\\', '/', $this->route['admin_prefix']);
+		$prefix = str_replace("\\", "/", $this->route["admin_prefix"]);
 		$viewFile =
-			APP . "/views/{$prefix}{$this->route['controller']}/{$this->view}.php";
+			APP . "/views/{$prefix}{$this->route["controller"]}/{$this->view}.php";
 		if (is_file($viewFile)) {
 			ob_start();
 			require_once $viewFile;
@@ -47,15 +47,21 @@ class View
 
 	public function getMeta()
 	{
-		$out = '<title>' . h($this->meta['title']) . '</title>' . PHP_EOL;
+		$out =
+			"<title>" .
+			App::$app->getProperty("site_name") .
+			" | " .
+			h($this->meta["title"]) .
+			"</title>" .
+			PHP_EOL;
 		$out .=
 			'<meta name="description" content="' .
-			h($this->meta['description']) .
+			h($this->meta["description"]) .
 			'">' .
 			PHP_EOL;
 		$out .=
 			'<meta name="keywords" content="' .
-			h($this->meta['keywords']) .
+			h($this->meta["keywords"]) .
 			'">' .
 			PHP_EOL;
 		return $out;
@@ -68,10 +74,10 @@ class View
 				->getDatabase()
 				->getLogger();
 			$logs = array_merge(
-				$logs->grep('SELECT'),
-				$logs->grep('INSERT'),
-				$logs->grep('UPDATE'),
-				$logs->grep('DELETE')
+				$logs->grep("SELECT"),
+				$logs->grep("INSERT"),
+				$logs->grep("UPDATE"),
+				$logs->grep("DELETE")
 			);
 			debug($logs);
 		}

@@ -5,9 +5,9 @@ namespace dns;
 abstract class Controller
 {
 	public array $data = [];
-	public array $meta = ['title' => '', 'description' => '', 'keywords' => ''];
-	public false|string $layout = '';
-	public string $view = '';
+	public array $meta = ["title" => "", "description" => "", "keywords" => ""];
+	public false|string $layout = "";
+	public string $view = "";
 	public object $model;
 
 	public function __construct(public $route = [])
@@ -17,9 +17,9 @@ abstract class Controller
 	public function getModel()
 	{
 		$model =
-			'app\models\\' .
-			$this->route['admin_prefix'] .
-			$this->route['controller'];
+			"app\models\\" .
+			$this->route["admin_prefix"] .
+			$this->route["controller"];
 		if (class_exists($model)) {
 			$this->model = new $model();
 		}
@@ -27,7 +27,7 @@ abstract class Controller
 
 	public function getView()
 	{
-		$this->view = $this->view ?: $this->route['action'];
+		$this->view = $this->view ?: $this->route["action"];
 		(new View($this->route, $this->layout, $this->view, $this->meta))->render(
 			$this->data
 		);
@@ -38,12 +38,34 @@ abstract class Controller
 		$this->data = $data;
 	}
 
-	public function setMeta($title = '', $description = '', $keywords = '')
+	public function setMeta($title = "", $description = "", $keywords = "")
 	{
 		$this->meta = [
-			'title' => $title,
-			'description' => $description,
-			'keywords' => $keywords
+			"title" => $title,
+			"description" => $description,
+			"keywords" => $keywords
 		];
+	}
+
+	public function isAjax(): bool
+	{
+		return isset($_SERVER["HTTP_X_REQUESTED_WITH"]) &&
+			$_SERVER["HTTP_X_REQUESTED_WITH"] === "XMLHttpRequest";
+	}
+
+	public function loadView($view, $vars = [])
+	{
+		extract($vars);
+		$prefix = str_replace("\\", "/", $this->route["admin_prefix"]);
+		require APP . "/views/{$prefix}{$this->route["controller"]}/{$view}.php";
+		die();
+	}
+
+	public function error_404($folder = "Error", $view = 404, $response = 404)
+	{
+		http_response_code($response);
+		$this->setMeta("404 - Страница не найдена");
+		$this->route["controller"] = $folder;
+		$this->view = $view;
 	}
 }

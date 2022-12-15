@@ -18,7 +18,7 @@ use dns\View;
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 	<link rel="stylesheet" media="all" href="<?= PATH ?>/assets/css/app.css">
 	<link rel="stylesheet" media="all" href="<?= PATH ?>/assets/css/style.css">
-	<?php $this->getMeta(); ?>
+	<?= $this->getMeta() ?>
 </head>
 <body>
 <header class="header col-12">
@@ -42,11 +42,20 @@ use dns\View;
 							<use xlink:href="assets/img/sprite-mono.svg#ico-mono-phone"></use>
 						</svg><span>8 800 77 07 999</span></a></div>
 				<div class="col-lg-2 col-md-6 col-12 header-top__login">
+					<?php if (isset($_SESSION["user"])) { ?>
+						<a href="user/cabinet" class="header-top__login-link">
+							<svg class="ico ico-mono-user">
+								<use xlink:href="assets/img/sprite-mono.svg#ico-mono-user"></use>
+							</svg>
+							<span>Личный кабинет</span>
+						</a>
+					<?php } else { ?>
 						<button class="header-top__login-link" type="button" data-bs-toggle="modal" data-bs-target="#authorization">
 							<svg class="ico ico-mono-user">
 								<use xlink:href="assets/img/sprite-mono.svg#ico-mono-user"></use>
 							</svg><span>Вход/Регистрация</span>
 						</button>
+					<?php } ?>
 				</div>
 			</nav>
 		</div>
@@ -54,7 +63,7 @@ use dns\View;
 	<div class="header-body col-12">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="header-logo logo col-lg-2 col-2"><a class="header-logo__link col-12" href="/"><span>dns</span></a></div>
+				<div class="header-logo logo col-lg-2 col-2"><a class="header-logo__link col-12" href="<?= PATH ?>"><span>dns</span></a></div>
 				<div class="header-search col-lg-7 col-7">
 					<form class="header-search__form search col-12" action="#">
 						<input id="search" class="header-search__input" type="text" placeholder="Например: Poco X3 Pro">
@@ -76,16 +85,26 @@ use dns\View;
 									</svg><span>2</span>
 								</div>
 							</div>
-						</a><a class="header-actions__item header__cart" href="./cart.php">
+						</a><a class="header-actions__item header__cart" href="<?= PATH ?>/cart">
 							<div class="row justify-content-between">
 								<div class="header-actions__text col-8"><span class="header-actions__name">Корзина</span>
+									<?php if (isset($_SESSION["cart.sum"])) { ?>
+										<strong class="header-actions__count cart-price"><?= $_SESSION[
+          	"cart.sum"
+          ] ?> руб</strong>
+									<?php } else { ?>
 										<strong class="header-actions__count cart-price">0 руб</strong>
+									<?php } ?>
 								</div>
 								<div class="header-actions__image header-actions__cart-image col-4">
 									<svg class="ico ico-mono-cart">
 										<use xlink:href="assets/img/sprite-mono.svg#ico-mono-cart"></use>
 									</svg>
+									<?php if (isset($_SESSION["cart.qty"])) { ?>
+										<span class="cart-count"><?= $_SESSION["cart.qty"] ?></span>
+									<?php } else { ?>
 										<span class="cart-count">0</span>
+									<?php } ?>
 								</div>
 							</div>
 						</a></div>
@@ -106,28 +125,26 @@ use dns\View;
 	</div>
 	<div class="catalog-menu col-12">
 		<div class="catalog-menu__wrapper">
-			<button class="catalog-menu__button" type="button"><img src="/assets/img/close.svg"></button>
+			<button class="catalog-menu__button" type="button"><img src="<?= PATH ?>/assets/img/close.svg"></button>
 			<div class="row">
 				<div class="col-lg-3 col-12">
 					<div class="catalog-menu__left">
 						<h2 class="catalog-menu__title">Каталог</h2>
-						<ul class="catalog-menu__category-list">
-							<li class="catalog-menu__category-item">
-								<a class="catalog-menu__category-link catalog-menu__category-link--enter" href="#">Категория</a>
-							</li>
-						</ul>
+						<?php new \app\widgets\menu\Menu([
+      	"class" => "catalog-menu__category-list",
+      	"cache" => 0
+      ]); ?>
 					</div>
 				</div>
 				<div class="col-lg-9 col-12">
 					<div class="catalog-menu__right">
 						<button class="catalog-menu__back" type="button">Назад в каталог</button>
-							<div class="catalog-menu__container catalog-menu__container--visible"><a class="catalog-menu__subtitle" href="#">Категория</a>
-								<ul class="catalog-menu__catalog-list">
-									<li class="catalog-menu__catalog-item">
-										<a class="catalog-menu__catalog-link" href="#">Подкатегория</a>
-									</li>
-								</ul>
-							</div>
+						<?php new \app\widgets\menu\Menu([
+      	"tpl" => "inserted_menu_tpl.php",
+      	"class" => "",
+      	"container" => "div",
+      	"cache" => 0
+      ]); ?>
 					</div>
 				</div>
 			</div>
