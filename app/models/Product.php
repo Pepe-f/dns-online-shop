@@ -17,4 +17,12 @@ class Product extends AppModel
 			$product_id
 		]);
 	}
+
+	public function get_characteristics($product_id): array
+	{
+		return R::getAll(
+			"SELECT * FROM product_characteristic WHERE product_id = ?",
+			[$product_id]
+		);
+	}
 }

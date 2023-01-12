@@ -15,14 +15,10 @@
                         <a href="<?= PATH ?>" itemprop="item">Главная</a>
                     </li>
                     <li>
-                        <a href="catalog-list/<?= $category[
-                        	"slug"
-                        ] ?>" itemprop="item"><?= $category["name"] ?></a>
+                        <a href="catalog-list/<?= $category["slug"] ?>" itemprop="item"><?= $category["name"] ?></a>
                     </li>
                     <li>
-                        <a href="catalog/<?= $subcategory[
-                        	"slug"
-                        ] ?>"><?= $subcategory["name"] ?></a>
+                        <a href="catalog/<?= $subcategory["slug"] ?>"><?= $subcategory["name"] ?></a>
                     </li>
                 </ul>
             </div>
@@ -63,12 +59,9 @@
 			                <div class="catalog-filters__choice">
 				                <?php foreach ($brands as $brand) { ?>
 					                <div class="catalog-filters__filter">
-						                <input class="catalog-filters__checkbox checkbox" type="checkbox" name="c_<?= $brand[
-                      	"id"
-                      ] ?>" data-brand-id="<?= $brand["id"] ?>">
-						                <label class="catalog-filters__label" for="c_<?= $brand[
-                      	"id"
-                      ] ?>"><?= $brand["name"] ?></label>
+						                <input class="catalog-filters__checkbox checkbox"
+						                       type="checkbox" name="c_<?= $brand["id"] ?>" data-brand-id="<?= $brand["id"] ?>">
+						                <label class="catalog-filters__label" for="c_<?= $brand["id"] ?>"><?= $brand["name"] ?></label>
 					                </div>
 				                <?php } ?>
 			                </div>
@@ -105,10 +98,7 @@
             <div class="catalog-body__wrapper">
                 <div class="row">
                 <?php if (!empty($products)) { ?>
-                    <?php $this->getPart(
-                    	"parts/products_loop",
-                    	compact("products")
-                    ); ?>
+                    <?php $this->getPart("parts/products_loop", compact("products")); ?>
                 <?php } ?>
                 </div>
             </div>
@@ -116,9 +106,7 @@
         </div>
         </div>
         <div class="col-12 catalog-description">
-            <p class="catalog-description__text"><?= $subcategory[
-            	"content"
-            ] ?></p>
+            <p class="catalog-description__text"><?= $subcategory["content"] ?></p>
         </div>
     </div>
     </div>

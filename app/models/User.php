@@ -44,7 +44,7 @@ class User extends AppModel
 		$email = post("email");
 		$password = post("password");
 		if ($email && $password) {
-			$user = R::findOne("user", "email = ?", [$email]);
+			$user = R::findOne("user", "email = ? AND role = 'user'", [$email]);
 			if ($user) {
 				if (password_verify($password, $user->password)) {
 					foreach ($user as $k => $v) {

@@ -1,5 +1,13 @@
 .idea
+public/adminlte/ckeditor
+public/adminlte/ckfinder
+public/adminlte/dist
+public/adminlte/plugins
 node_modules
 vendor/composer
 vendor/gabordemooij
+vendor/vlucas
 *.log
+tmp/cache
+tmp/logs
+public/uploads/.ckfinder

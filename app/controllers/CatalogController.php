@@ -25,13 +25,7 @@ class CatalogController extends AppController
 		$brands = $this->model->get_brands($products);
 		$maxPrice = $this->model->get_max_price($products);
 		$category = $this->model->get_category($subcategory);
-		$this->setMeta(
-			$subcategory["name"],
-			$subcategory["description"],
-			$subcategory["keywords"]
-		);
-		$this->set(
-			compact("products", "subcategory", "brands", "maxPrice", "category")
-		);
+		$this->setMeta($subcategory["name"], $subcategory["description"], $subcategory["keywords"]);
+		$this->set(compact("products", "subcategory", "brands", "maxPrice", "category"));
 	}
 }

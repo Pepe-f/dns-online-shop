@@ -68,9 +68,7 @@
 									</div>
 									<div class="history-accordion__customer">
 										<h2 class="history-accordion__subtitle">Адрес</h2>
-										<span class="history-accordion__name">г. <?= $order["city"] ?>, <?= $order[
-	"address"
-] ?></span>
+										<span class="history-accordion__name">г. <?= $order["city"] ?>, <?= $order["address"] ?></span>
 									</div>
 									<div class="history-accordion__customer">
 										<h2 class="history-accordion__subtitle">Способ доставки и оплаты</h2>
@@ -96,17 +94,11 @@
 											</div>
 											<div class="history-accordion-cart__text">
 												<strong class="history-accordion-cart__name"><?= $product["name"] ?></strong>
-												<span class="history-accordion-cart__vendor">Артикул: <?= $product[
-            	"article"
-            ] ?></span>
+												<span class="history-accordion-cart__vendor">Артикул: <?= $product["article"] ?></span>
 												<?php if ($product["qty"] > 1) { ?>
-													<strong class="history-accordion-cart__price"><?= $product[
-             	"price"
-             ] ?> ₽ х <?= $product["qty"] ?> шт</strong>
+													<strong class="history-accordion-cart__price"><?= $product["price"] ?> ₽ х <?= $product["qty"] ?> шт</strong>
 												<?php } else { ?>
-													<strong class="history-accordion-cart__price"><?= $product[
-             	"price"
-             ] ?> ₽</strong>
+													<strong class="history-accordion-cart__price"><?= $product["price"] ?> ₽</strong>
 												<?php } ?>
 											</div>
 										</div>

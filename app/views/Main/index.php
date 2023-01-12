@@ -22,15 +22,11 @@ use dns\View;
 									<div class="col-12">
 										<p class="banner-slider__text col-12"><?= $slide->text ?></p>
 									</div>
-									<div class="col-12">
-											<a class="banner-slider__button button-fill button-fill--red" href="<?= PATH ?>"> <span>Смотреть</span></a>
-									</div>
 								</div>
 							</div>
 								<div class="banner-slider__images">
-									<img class="banner-slider__img banner-slider__img--near" src="<?= PATH .
-         	$slide->img ?>" alt="<?= $slide->title ?>">
-									<!-- <img class="banner-slider__img banner-slider__img--near" src="" alt="Banner image 2"> -->
+									<img class="banner-slider__img banner-slider__img--near"
+									     src="<?= PATH . $slide->img ?>" alt="<?= $slide->title ?>">
 								</div>
 						</div>
 					<?php } ?>
@@ -59,7 +55,7 @@ use dns\View;
 				<div class="row justify-content-between">
 					<?php $this->getPart("parts/products_loop", compact("products")); ?>
 				</div>
-			</div><a class="recomendation__button" href="/catalog-list.php"><span>Смотреть весь каталог</span>
+			</div><a class="recomendation__button" href="catalog-list/all"><span>Смотреть весь каталог</span>
 				<svg class="ico ico-mono-arrow-right">
 					<use xlink:href="assets/img/sprite-mono.svg#ico-mono-arrow-right"></use>
 				</svg></a>
@@ -77,9 +73,7 @@ use dns\View;
 			<div class="catalog-list__wrapper col-12">
 				<div class="row justify-content-between">
 					<?php foreach ($subcategories as $subcategory) { ?>
-						<a class="catalog-list__item col-lg-4 col-sm-6 col-12" href="catalog/<?= $subcategory[
-      	"slug"
-      ] ?>">
+						<a class="catalog-list__item col-lg-4 col-sm-6 col-12" href="catalog/<?= $subcategory["slug"] ?>">
 							<div class="catalog-list__body">
 								<h2 class="catalog-list__name"><?= $subcategory["name"] ?></h2>
 							</div>

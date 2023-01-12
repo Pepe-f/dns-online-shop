@@ -18,13 +18,11 @@ class ProductController extends AppController
 			return;
 		}
 
-		$breadcrumbs = Breadcrumbs::getBreadcrumbs(
-			$product["category_id"],
-			$product["name"]
-		);
+		$breadcrumbs = Breadcrumbs::getBreadcrumbs($product["category_id"], $product["name"]);
 
 		$gallery = $this->model->get_gallery($product["id"]);
-		$this->setMeta($product["name"], "Description", "Keywords");
-		$this->set(compact("product", "gallery", "breadcrumbs"));
+		$characteristics = $this->model->get_characteristics($product["id"]);
+		$this->setMeta($product["name"], $product["description"], $product["keywords"]);
+		$this->set(compact("product", "gallery", "breadcrumbs", "characteristics"));
 	}
 }

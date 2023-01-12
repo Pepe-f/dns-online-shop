@@ -2,12 +2,19 @@
 
 namespace app\controllers\admin;
 
-use dns\Controller;
+use RedBeanPHP\R;
 
-class MainController extends Controller
+class MainController extends AppController
 {
 	public function indexAction()
 	{
-		echo '<h1>Admin</h1>';
+		$orders = R::count("orders");
+		$new_orders = R::count("orders", "status = 0");
+		$users = R::count("user");
+		$products = R::count("product");
+
+		$title = "Главная страница";
+		$this->setMeta("Админ-панель :: Главная страница");
+		$this->set(compact("title", "orders", "new_orders", "users", "products"));
 	}
 }

@@ -1,0 +1,95 @@
+a:2:{s:4:"data";s:4167:"<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/bytovaya-tehnika">
+		<strong>Бытовая техника</strong>
+	</a>
+			<ul class="header-bottom__catalog-submenu row">
+			<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/tovary-dlya-kuhni">
+		<strong>Товары для кухни</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/tovary-dlya-doma">
+		<strong>Товары для дома</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/krasota-i-zdorove">
+		<strong>Красота и здоровье</strong>
+	</a>
+	</li>		</ul>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/smartfony-i-gadzhety">
+		<strong>Смартфоны и гаджеты</strong>
+	</a>
+			<ul class="header-bottom__catalog-submenu row">
+			<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/smartfony">
+		<strong>Смартфоны</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/planshety">
+		<strong>Планшеты</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/fototehnika">
+		<strong>Фототехника</strong>
+	</a>
+	</li>		</ul>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/tv-i-multimedia">
+		<strong>ТВ и мультимедиа</strong>
+	</a>
+			<ul class="header-bottom__catalog-submenu row">
+			<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/televizory">
+		<strong>Телевизоры</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/konsoli-i-videoigry">
+		<strong>Консоли и видеоигры</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/audiotehnika">
+		<strong>Аудиотехника</strong>
+	</a>
+	</li>		</ul>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/kompyutery">
+		<strong>Компьютеры</strong>
+	</a>
+			<ul class="header-bottom__catalog-submenu row">
+			<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/kompyutery">
+		<strong>Компьютеры</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/noutbuki">
+		<strong>Ноутбуки</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/komplektuyushie-dlya-pk">
+		<strong>Комплектующие для ПК</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/periferiya">
+		<strong>Периферия</strong>
+	</a>
+	</li>		</ul>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/ofis-i-set">
+		<strong>Офис и сеть</strong>
+	</a>
+			<ul class="header-bottom__catalog-submenu row">
+			<li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/orgtehnika">
+		<strong>Оргтехника</strong>
+	</a>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog/routery">
+		<strong>Роутеры</strong>
+	</a>
+	</li>		</ul>
+	</li><li class="header-bottom__catalog-item col-12">
+	<a class="header-bottom__catalog-link col-12" href="catalog-list/testovaya-kategoriya">
+		<strong>Тестовая категория</strong>
+	</a>
+	</li>";s:8:"end_time";i:1671722744;}

@@ -21,7 +21,7 @@ class CatalogListController extends AppController
 		$category_id = $this->model->get_category_id($category);
 		$subcategories = $this->model->get_subcategories($category_id);
 
-		$this->setMeta($category["name"], "Description", "Keywords");
+		$this->setMeta($category["name"], $category["description"], $category["keywords"]);
 		$this->set(compact("category", "subcategories"));
 	}
 }

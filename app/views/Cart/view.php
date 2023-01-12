@@ -36,14 +36,10 @@
 											<img src="<?= $item["img"] ?>" alt="<?= $item["name"] ?>">
 										</div>
 										<div class="cart-products__description">
-											<a class="cart-products__name" href="product/<?= $item["slug"] ?>"><?= $item[
-	"name"
-] ?></a>
+											<a class="cart-products__name" href="product/<?= $item["slug"] ?>"><?= $item["name"] ?></a>
 											<span class="cart-products__vendor">Артикул: <?= $item["article"] ?></span>
 											<?php if ($item["qty"] > 1) { ?>
-												<strong class="cart-products__cost"><?= $item["price"] ?> ₽ x <?= $item[
- 	"qty"
- ] ?> шт</strong>
+												<strong class="cart-products__cost"><?= $item["price"] ?> ₽ x <?= $item["qty"] ?> шт</strong>
 											<?php } else { ?>
 												<strong class="cart-products__cost"><?= $item["price"] ?> ₽</strong>
 											<?php } ?>
@@ -56,7 +52,8 @@
 												<button class="counter-button counter-button--plus"></button>
 											</div>
 										</div>
-										<a href="cart/delete?id=<?= $id ?>" class="cart-products__button" data-product="<?= $id ?>"><span>Удалить</span>
+										<a href="cart/delete?id=<?= $id ?>" class="cart-products__button" data-product="<?= $id ?>">
+											<span>Удалить</span>
 											<svg class="ico ico-mono-cancel">
 												<use xlink:href="<?= PATH ?>/assets/img/sprite-mono.svg#ico-mono-cancel"></use>
 											</svg>
@@ -75,9 +72,8 @@
        ] ?> шт</strong>
 						</div>
 						<div class="cart-details__item cart-details__item--result"><span class="cart-details__key">Итого </span>
-							<div class="cart-details__dash"></div><strong class="cart-details__value"><?= $_SESSION[
-       	"cart.sum"
-       ] ?> ₽</strong>
+							<div class="cart-details__dash"></div>
+							<strong class="cart-details__value"><?= $_SESSION["cart.sum"] ?> ₽</strong>
 						</div>
 						<div class="cart-details__actions row justify-content-between align-items-center">
 							<a href="/" class="cart-details__button cart-details__button--back">Вернуться к покупкам </a>
@@ -103,11 +99,6 @@
 						<?php $this->getPart("parts/products_loop", compact("products")); ?>
 					</div>
 				</div>
-<!--				<a class="recomendation__button" href="/catalog-list.php"><span>Смотреть весь каталог</span>-->
-<!--					<svg class="ico ico-mono-arrow-right">-->
-<!--						<use xlink:href="assets/img/sprite-mono.svg#ico-mono-arrow-right"></use>-->
-<!--					</svg>-->
-<!--				</a>-->
 			</div>
 		</div>
 	</section>

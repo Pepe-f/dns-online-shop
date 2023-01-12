@@ -3,5 +3,6 @@
 	"useTabs": true,
 	"tabWidth": 2,
 	"trailingCommaPHP": false,
-	"semi": false
+	"semi": false,
+	"printWidth": 120
 }

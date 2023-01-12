@@ -10,7 +10,7 @@ function debug($data, $die = false)
 
 function h($str)
 {
-	return htmlspecialchars($str);
+	return htmlspecialchars($str ?? '', ENT_QUOTES);
 }
 
 function redirect($http = false)
@@ -58,4 +58,14 @@ function post($key, $type = 's')
 	} else {
 		return trim($$param);
 	}
+}
+
+function get_field_value($name)
+{
+	return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
+}
+
+function get_field_array_value($name, $index)
+{
+	return isset($_SESSION['form_data'][$name][$index]) ? h($_SESSION['form_data'][$name][$index]) : '';
 }

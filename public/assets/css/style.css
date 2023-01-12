@@ -329,3 +329,20 @@ body.modal-open {
 .header-bottom__catalog-submenu li a:hover {
 	color: #FC8507;
 }
+
+.footer-body__list li {
+	line-height: 21px;
+}
+
+.footer-body__list li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.header-top__list li {
+	width: auto;
+}
+
+.header-top__list li a {
+	line-height: 13px;
+	transition: .25s;
+}

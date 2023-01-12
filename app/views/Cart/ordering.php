@@ -34,18 +34,14 @@
 						<div class="col-12 ordering-form__item">
 							<h2 class="ordering-form__subtitle">Информация о покупателе</h2>
 							<div class="ordering-form__wrapper">
-								<input class="ordering-form__input" type="text" name="fullname" value="<?= $_SESSION[
-        	"user"
-        ]["name"] ?>" placeholder="ФИО получателя*" required readonly>
-								<input class="ordering-form__input phone" type="tel" name="phone" value="<?= $_SESSION[
-        	"user"
-        ]["phone"] ?>" placeholder="Контактный телефон*" required readonly>
-								<input class="ordering-form__input" type="email" name="email" value="<?= $_SESSION[
-        	"user"
-        ]["email"] ?>" placeholder="E-mail*" required readonly>
-								<input class="ordering-form__input" type="text" name="city" value="<?= $_SESSION[
-        	"user"
-        ]["location"] ?>" placeholder="Город*" required readonly>
+								<input class="ordering-form__input" type="text"
+								       name="fullname" value="<?= $_SESSION["user"]["name"] ?>" placeholder="ФИО получателя*" required readonly>
+								<input class="ordering-form__input phone" type="tel"
+								       name="phone" value="<?= $_SESSION["user"]["phone"] ?>" placeholder="Контактный телефон*" required readonly>
+								<input class="ordering-form__input" type="email"
+								       name="email" value="<?= $_SESSION["user"]["email"] ?>" placeholder="E-mail*" required readonly>
+								<input class="ordering-form__input" type="text"
+								       name="city" value="<?= $_SESSION["user"]["location"] ?>" placeholder="Город*" required readonly>
 								<input class="ordering-form__input" type="text" name="address" placeholder="Улица, дом, строение, квартира" required>
 								<input class="ordering-form__input" type="text" name="note" placeholder="Примечания (подъезд, этаж, домофон)">
 								<textarea class="ordering-form__textarea" name="comment" placeholder="Комментарий к заказу"></textarea>
@@ -56,9 +52,7 @@
 							<div class="ordering-form__wrapper">
 								<?php foreach ($deliveryMethods as $method) { ?>
 									<div class="ordering-form__choice">
-										<input class="ordering-form__radio radio" type="radio" name="delivery_method" value="<?= $method[
-          	"id"
-          ] ?>" required>
+										<input class="ordering-form__radio radio" type="radio" name="delivery_method" value="<?= $method["id"] ?>" required>
 										<label class="ordering-form__radio-label">
 											<strong><?= $method["name"] ?></strong>
 											<span><?php if ($method["price"] === 0) { ?>
@@ -79,9 +73,7 @@
 							<div class="ordering-form__wrapper">
 								<?php foreach ($paymentMethods as $method) { ?>
 									<div class="ordering-form__choice">
-										<input class="ordering-form__radio radio" type="radio" name="payment_method" value="<?= $method[
-          	"id"
-          ] ?>" required>
+										<input class="ordering-form__radio radio" type="radio" name="payment_method" value="<?= $method["id"] ?>" required>
 										<label class="ordering-form__radio-label">
 											<strong><?= $method["name"] ?></strong>
 										</label>
@@ -117,9 +109,7 @@
 								<?php if ($product["qty"] === 1) { ?>
 									<strong class="cart-details__price"><?= $product["price"] ?> ₽</strong>
 								<?php } else { ?>
-									<strong class="cart-details__price"><?= $product["price"] ?> ₽ х <?= $product[
- 	"qty"
- ] ?> шт</strong>
+									<strong class="cart-details__price"><?= $product["price"] ?> ₽ х <?= $product["qty"] ?> шт</strong>
 								<?php } ?>
 							</div>
 						</div>

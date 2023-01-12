@@ -26,8 +26,18 @@ Router::add('catalog/(?P<slug>[a-z0-9-]+)/?$', [
 	"action" => "view"
 ]);
 
+Router::add('filter/?$', [
+	"controller" => "Filter",
+	"action" => "show"
+]);
+
 Router::add('cart/?$', [
 	"controller" => "Cart",
+	"action" => "view"
+]);
+
+Router::add('page/(?P<slug>[a-z0-9-]+)/?$', [
+	"controller" => "Page",
 	"action" => "view"
 ]);
 

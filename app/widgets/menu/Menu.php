@@ -2,8 +2,8 @@
 
 namespace app\widgets\menu;
 
+use dns\App;
 use dns\Cache;
-use RedBeanPHP\R;
 
 class Menu
 {
@@ -40,8 +40,8 @@ class Menu
 		$this->menuHtml = $cache->get("{$this->cacheKey}");
 
 		if (!$this->menuHtml) {
-			$this->data = R::getAssoc("SELECT * FROM category");
-			//			$this->data = App::$app->getProperty("categories");
+			//$this->data = R::getAssoc("SELECT * FROM category");
+			$this->data = App::$app->getProperty("categories");
 			$this->tree = $this->getTree();
 			$this->menuHtml = $this->getMenuHtml($this->tree);
 			if ($this->cache) {

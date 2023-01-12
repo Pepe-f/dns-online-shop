@@ -124,11 +124,7 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 					numberProducts++
 				}
 
-				const id = $(this)
-					.parent()
-					.parent()
-					.siblings(".cart-products__button")
-					.data("product")
+				const id = $(this).parent().parent().siblings(".cart-products__button").data("product")
 
 				if (numberProducts === 0) {
 					$.ajax({
@@ -203,43 +199,38 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 			})
 			$(".catalog-filters__price").on("change", function () {
 				var currentPrice = parseInt($(this).val())
-				if (
-					$(this).hasClass("catalog-filters__price--min") &&
-					currentPrice <= maxPrice
-				) {
+				if ($(this).hasClass("catalog-filters__price--min") && currentPrice <= maxPrice) {
 					minPrice = currentPrice
-				} else if (
-					$(this).hasClass("catalog-filters__price--max") &&
-					currentPrice >= minPrice
-				) {
+				} else if ($(this).hasClass("catalog-filters__price--max") && currentPrice >= minPrice) {
 					maxPrice = currentPrice
 				}
 				$(".slider-range").slider("option", "values", [minPrice, maxPrice])
 			})
 			$(".catalog-filters__reset").on("click", function () {
-				minPrice = Number.parseInt(
-					$(".catalog-filters__price--min").attr("min")
-				)
-				maxPrice = Number.parseInt(
-					$(".catalog-filters__price--max").attr("max")
-				)
+				minPrice = Number.parseInt($(".catalog-filters__price--min").attr("min"))
+				maxPrice = Number.parseInt($(".catalog-filters__price--max").attr("max"))
 				$(".catalog-filters__checkbox").prop("checked", false)
 				$(".catalog-filters__price--min").val(minPrice)
 				$(".catalog-filters__price--max").val(maxPrice)
 				$(".slider-range").slider("option", "values", [minPrice, maxPrice])
 
-				const subcategoryId = Number.parseInt(
-					$(".catalog").data("subcategory-id")
-				)
+				const subcategoryId = Number.parseInt($(".catalog").data("subcategory-id"))
 				const catalogData = {
-					subcategoryId: subcategoryId,
+					subcategory: subcategoryId,
+					brands: [],
+					minPrice: minPrice,
+					maxPrice: maxPrice,
 				}
+
 				$.ajax({
-					type: "POST",
+					type: "GET",
 					data: catalogData,
-					url: "filtering.php",
-					success: function (data) {
-						$(".catalog-body").html(data)
+					url: "filter",
+					success: function (res) {
+						$(".catalog-body").html(res)
+					},
+					error: function (err) {
+						console.log(err)
 					},
 				})
 			})
@@ -258,23 +249,24 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 					brandsId.push(Number.parseInt($(brands[i]).data("brand-id")))
 				}
 
-				const subcategoryId = Number.parseInt(
-					$(".catalog").data("subcategory-id")
-				)
+				const subcategoryId = Number.parseInt($(".catalog").data("subcategory-id"))
 
 				const catalogData = {
-					subcategoryId: subcategoryId,
-					brandsId: brandsId,
+					subcategory: subcategoryId,
+					brands: brandsId,
 					minPrice: minPrice,
 					maxPrice: maxPrice,
 				}
 
 				$.ajax({
-					type: "POST",
+					type: "GET",
 					data: catalogData,
-					url: "filtering.php",
-					success: function (data) {
-						$(".catalog-body").html(data)
+					url: "filter",
+					success: function (res) {
+						$(".catalog-body").html(res)
+					},
+					error: function (err) {
+						console.log(err)
 					},
 				})
 			})
@@ -399,9 +391,7 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 								location.reload()
 							},
 							error: function (err) {
-								alert(
-									"Пользователь с таким номером телефона или почтой уже зарегистрирован"
-								)
+								alert("Пользователь с таким номером телефона или почтой уже зарегистрирован")
 							},
 						})
 					}
@@ -484,9 +474,7 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 				effect: "fade",
 			})
 			$(".product-images__slide").on("click", function () {
-				var activeSlide = $(this)
-					.parent()
-					.find(".product-images__slide--active")
+				var activeSlide = $(this).parent().find(".product-images__slide--active")
 				activeSlide.removeClass("product-images__slide--active")
 				$(this).addClass("product-images__slide--active")
 				var activeIndex = productSlider.clickedIndex
@@ -495,9 +483,7 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 			mainProductSlider.on("slideChange", function () {
 				var activeIndex = mainProductSlider.activeIndex
 				productSlider.slideTo(activeIndex, 200)
-				$(".product-images__slider")
-					.find(".product-images__slide--active")
-					.removeClass("product-images__slide--active")
+				$(".product-images__slider").find(".product-images__slide--active").removeClass("product-images__slide--active")
 				var productSlide = productSlider.slides[activeIndex]
 				$(productSlide).addClass("product-images__slide--active")
 			})
@@ -505,9 +491,7 @@ var easingSwing = [0.02, 0.01, 0.47, 1] // default jQuery easing
 				$(this).toggleClass("active")
 
 				if ($(this).parent().hasClass("product-characteristics__actions")) {
-					var productsCounter = $(this)
-						.parent()
-						.find(".product-characteristics__count")
+					var productsCounter = $(this).parent().find(".product-characteristics__count")
 					var numberProducts = parseInt(productsCounter.find("span").text())
 					$(this).find(".button-cart__number").text(numberProducts)
 				}
@@ -699,10 +683,7 @@ $(function () {
 				passForm.on("submit", function (e) {
 					e.preventDefault()
 
-					if (
-						$("input[name='password']").val() ===
-						$("input[name='password_2']").val()
-					) {
+					if ($("input[name='password']").val() === $("input[name='password_2']").val()) {
 						if (passForm.valid()) {
 							const formData = $(this).serialize()
 
@@ -748,9 +729,7 @@ $(function () {
 								window.location.href = "cart/success"
 							},
 							error: function (err) {
-								alert(
-									"Произошла непредвиденная ошибка оформления заказа, повторите еще раз"
-								)
+								alert("Произошла непредвиденная ошибка оформления заказа, повторите еще раз")
 							},
 						})
 					}

@@ -34,7 +34,7 @@ class Order extends AppModel
 		}
 	}
 
-	public static function saveOrderProduct($order_id, $user_id)
+	public static function saveOrderProduct($order_id, $user_id): void
 	{
 		$sql_part = "";
 		$binds = [];
@@ -51,6 +51,10 @@ class Order extends AppModel
 				$product["qty"],
 				$sum
 			]);
+
+			$findProduct = R::getRow("SELECT * FROM product WHERE id = ?", [$product_id]);
+			$qty = $findProduct["qty"] - $product["qty"];
+			R::exec("UPDATE product SET qty = ? WHERE id = ?", [$qty, $product_id]);
 		}
 		$sql_part = rtrim($sql_part, ",");
 		R::exec(

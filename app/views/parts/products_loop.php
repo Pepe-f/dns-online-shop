@@ -31,10 +31,7 @@
 						<svg class="ico ico-mono-cart">
 							<use xlink:href="<?= PATH ?>/assets/img/sprite-mono.svg#ico-mono-cart"></use>
 						</svg>
-						<span class="button-cart__number"><?php if (
-      	isset($_SESSION["cart.qty"]) &&
-      	$_SESSION["cart.qty"] !== 0
-      ) {
+						<span class="button-cart__number"><?php if (isset($_SESSION["cart.qty"]) && $_SESSION["cart.qty"] !== 0) {
       	echo $_SESSION["cart.qty"];
       } else {
       	echo "0";

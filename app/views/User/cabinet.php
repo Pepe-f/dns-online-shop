@@ -33,24 +33,20 @@
 					<form class="profile-data__form profile-data__form-data">
 						<div class="profile-data__wrapper">
 							<div class="profile-data__input-wrapper">
-								<input class="profile-data__input" type="text" name="name" placeholder="ФИО*" value="<?= $_SESSION[
-        	"user"
-        ]["name"] ?>" required>
+								<input class="profile-data__input" type="text" name="name"
+								       placeholder="ФИО*" value="<?= $_SESSION["user"]["name"] ?>" required>
 							</div>
 							<div class="profile-data__input-wrapper">
-								<input class="profile-data__input phone" type="tel" name="phone" placeholder="Номер телефона*" value="<?= $_SESSION[
-        	"user"
-        ]["phone"] ?>" required>
+								<input class="profile-data__input phone" type="tel" name="phone"
+								       placeholder="Номер телефона*" value="<?= $_SESSION["user"]["phone"] ?>" required>
 							</div>
 							<div class="profile-data__input-wrapper">
-								<input class="profile-data__input" type="email" name="email" placeholder="E-mail*" value="<?= $_SESSION[
-        	"user"
-        ]["email"] ?>" required>
+								<input class="profile-data__input" type="email" name="email"
+								       placeholder="E-mail*" value="<?= $_SESSION["user"]["email"] ?>" required>
 							</div>
 							<div class="profile-data__input-wrapper">
-								<input class="profile-data__input" type="text" name="location" placeholder="Город*" value="<?= $_SESSION[
-        	"user"
-        ]["location"] ?>" required>
+								<input class="profile-data__input" type="text" name="location"
+								       placeholder="Город*" value="<?= $_SESSION["user"]["location"] ?>" required>
 							</div>
 						</div>
 						<button class="profile-data__button button-fill button-fill--primary" type="submit">Сохранить данные </button>
